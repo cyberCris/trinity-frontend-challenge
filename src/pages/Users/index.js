@@ -1,65 +1,125 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { orderBy } from 'lodash';
+
+import { IoIosPeople } from 'react-icons/io';
+import { FiMapPin } from 'react-icons/fi';
+import { FaUserFriends, FaStar } from 'react-icons/fa';
+import { GoPackage } from 'react-icons/go';
+
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { withStyles } from '@material-ui/core/styles';
+
+import { Container, Thumbnail, Star, Info, Data } from './styles';
+import Search from '../../components/Search';
+
+const StyledCard = withStyles({
+    root: {
+        background: '#342e47',
+        color: '#fff',
+        fontFamily: 'Roboto, sans-serif',
+    },
+})(Card);
 
 export default function Users() {
-    const repositories = [
-        {
-            name: 'repo1',
-        },
-        {
-            name: 'repo2',
-        },
-        {
-            name: 'repo3',
-        },
-        {
-            name: 'repo4',
-        },
-    ];
+    const user = useSelector(state => state.User.user);
+    const repositories = useSelector(state => state.User.repos);
+
+    const sortedRepos = orderBy(repositories, ['stargazers_count'], 'desc');
 
     return (
-        <div>
+        <Container>
             <Grid container spacing={3}>
-                <Grid item xs={2}>
-                    <Card>
-                        <CardContent>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        backgroundColor: '#000',
-                                        height: '50px',
-                                        width: '50px',
-                                        borderRadius: '50%',
-                                    }}
-                                />
-                            </div>
-                            <h1>Cristiano</h1>
-                        </CardContent>
-                    </Card>
+                <Grid item xs={12}>
+                    <Search row />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={3}>
+                    <StyledCard>
+                        <CardContent>
+                            <Thumbnail>
+                                <img
+                                    src={user.avatar_url}
+                                    style={{
+                                        height: 'auto',
+                                        width: '110px',
+                                        borderRadius: '50%',
+                                        border: '3px solid #fff',
+                                    }}
+                                    alt="user avatar"
+                                />
+                                <p className="name">@{user.login}</p>
+                                <Data>
+                                    <Info bio>
+                                        <p>{user.bio}</p>
+                                    </Info>
+                                </Data>
+                                <Data>
+                                    <Info>
+                                        <FiMapPin
+                                            style={{ marginRight: '5px' }}
+                                        />
+                                        <p>
+                                            {user.location
+                                                ? user.location
+                                                : 'no location'}
+                                        </p>
+                                    </Info>
+                                </Data>
+                                <Data>
+                                    <Info>
+                                        <p>{user.email}</p>
+                                    </Info>
+                                </Data>
+                                <Data>
+                                    <Info>
+                                        <GoPackage
+                                            style={{ marginRight: '5px' }}
+                                        />
+                                        <p>{user.public_repos}</p>
+                                    </Info>
+                                </Data>
+                                <Data>
+                                    <Info>
+                                        <FaUserFriends
+                                            style={{ marginRight: '5px' }}
+                                        />
+                                        <p>{user.following}</p>
+                                    </Info>
+                                </Data>
+                                <Data>
+                                    <Info>
+                                        <IoIosPeople
+                                            style={{ marginRight: '5px' }}
+                                        />
+                                        <p>{user.followers}</p>
+                                    </Info>
+                                </Data>
+                            </Thumbnail>
+                        </CardContent>
+                    </StyledCard>
+                </Grid>
+                <Grid item xs={9}>
                     <Grid container spacing={2}>
-                        {repositories.map(repo => (
+                        {sortedRepos.map(repo => (
                             <Grid item key={repo.name} xs={6}>
-                                <Card>
+                                <StyledCard>
                                     <CardContent>
-                                        <h1>{repo.name}</h1>
+                                        <h3 style={{ fontWeight: 100 }}>
+                                            {repo.name}
+                                        </h3>
+                                        <Star>
+                                            <FaStar />
+                                            <p>{repo.stargazers_count}</p>
+                                        </Star>
                                     </CardContent>
-                                </Card>
+                                </StyledCard>
                             </Grid>
                         ))}
                     </Grid>
                 </Grid>
             </Grid>
-        </div>
+        </Container>
     );
 }

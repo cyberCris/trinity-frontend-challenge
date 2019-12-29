@@ -8,11 +8,12 @@ export default createGlobalStyle`
       box-sizing: border-box;
   }
   html, body, #root {
-      min-height: 100%;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
   }
   body{
       background: #242435;
-      -webkit-font-smoothing: antialiased !important;
+      /* -webkit-font-smoothing: antialiased !important; */
   }
   body, input, button{
       color: #2e2f45;
