@@ -8,32 +8,34 @@ export const Container = styled.div`
     }
 `;
 
-export const Thumbnail = styled.div`
+export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    & .name {
-        margin: 10px 0;
+    p {
+        margin-top: 5px;
     }
 `;
 
 export const Data = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: '';
-    align-items: '';
-    text-align: left;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 5px;
 `;
 
 export const Info = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-
-    text-align: left;
+    justify-content: left;
+    text-justify: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
 `;
 
 export const Star = styled.div`

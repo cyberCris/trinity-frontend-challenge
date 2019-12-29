@@ -12,7 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 
-import { Container, Thumbnail, Star, Info, Data } from './styles';
+import { Container, Profile, Star, Info, Data } from './styles';
 import Search from '../../components/Search';
 
 const StyledCard = withStyles({
@@ -38,7 +38,7 @@ export default function Users() {
                 <Grid item xs={3}>
                     <StyledCard>
                         <CardContent>
-                            <Thumbnail>
+                            <Profile>
                                 <img
                                     src={user.avatar_url}
                                     style={{
@@ -49,13 +49,12 @@ export default function Users() {
                                     }}
                                     alt="user avatar"
                                 />
-                                <p className="name">@{user.login}</p>
+                                <p>@{user.login}</p>
                                 <Data>
                                     <Info bio>
                                         <p>{user.bio}</p>
                                     </Info>
-                                </Data>
-                                <Data>
+
                                     <Info>
                                         <FiMapPin
                                             style={{ marginRight: '5px' }}
@@ -66,29 +65,21 @@ export default function Users() {
                                                 : 'no location'}
                                         </p>
                                     </Info>
-                                </Data>
-                                <Data>
-                                    <Info>
-                                        <p>{user.email}</p>
-                                    </Info>
-                                </Data>
-                                <Data>
+
                                     <Info>
                                         <GoPackage
                                             style={{ marginRight: '5px' }}
                                         />
                                         <p>{user.public_repos}</p>
                                     </Info>
-                                </Data>
-                                <Data>
+
                                     <Info>
                                         <FaUserFriends
                                             style={{ marginRight: '5px' }}
                                         />
                                         <p>{user.following}</p>
                                     </Info>
-                                </Data>
-                                <Data>
+
                                     <Info>
                                         <IoIosPeople
                                             style={{ marginRight: '5px' }}
@@ -96,7 +87,7 @@ export default function Users() {
                                         <p>{user.followers}</p>
                                     </Info>
                                 </Data>
-                            </Thumbnail>
+                            </Profile>
                         </CardContent>
                     </StyledCard>
                 </Grid>

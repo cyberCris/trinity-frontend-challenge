@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Container, Form } from './styles';
 import { searchRequest } from '../../store/modules/User/actions';
 
@@ -23,9 +24,11 @@ export default function({ row }) {
 
     return (
         <Container row={row}>
-            <h1>
-                Github <span>Search</span>
-            </h1>
+            <Link style={{ textDecoration: 'none' }} to="/">
+                <h1>
+                    Github <span>Search</span>
+                </h1>
+            </Link>
 
             <Form onSubmit={handleSubmit}>
                 <input
