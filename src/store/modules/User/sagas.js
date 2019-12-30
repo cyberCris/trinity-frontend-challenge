@@ -15,7 +15,7 @@ export function* getUser({ payload }) {
 
         history.push('/users');
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 }
 
