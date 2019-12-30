@@ -3,6 +3,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import history from '../../../services/history';
 import api from '../../../services/api';
 import { searchSuccess } from './actions';
+import { displayToast } from '../../../components/Toast';
 
 export function* getUser({ payload }) {
     try {
@@ -15,7 +16,7 @@ export function* getUser({ payload }) {
 
         history.push('/users');
     } catch (err) {
-        // console.log(err);
+        displayToast({ message: 'User not found' });
     }
 }
 
