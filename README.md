@@ -1,10 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## About
+Implementação de uma aplicação client-side, que consulte a API do GitHub e mostre os repositórios de um determinado usuário.
 
 ## Librarys used
-*   react-router-dom (para lidar com rotas no front-end)
+*   react-redux
+*   redux-saga
+*   redux-persist
+*   react-router-dom 
 *   styled-components
+*   material-ui
+*   axios
+*   react-icons
+*   history
+*   react-toastify
 
 ## Available Scripts
 
