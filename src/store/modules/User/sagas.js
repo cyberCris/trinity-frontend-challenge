@@ -17,7 +17,7 @@ export function* getUser({ payload }) {
         history.push('/users');
     } catch (err) {
         // console.log(err);
-        toast.error(err);
+        toast.error('User not found');
     }
 }
 

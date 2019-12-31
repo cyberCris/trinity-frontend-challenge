@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import { store, persistor } from './store';
 import Global from './styles/global';
 import history from './services/history';
@@ -16,6 +18,7 @@ function App() {
                 <Router history={history}>
                     <Global />
                     <Routes />
+                    <ToastContainer autoClose={3000} />
                 </Router>
             </PersistGate>
         </Provider>
