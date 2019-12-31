@@ -24,7 +24,7 @@ export default function({ row }) {
 
     return (
         <Container row={row}>
-            <Link style={{ textDecoration: 'none' }} to="/">
+            <Link to="/">
                 <h1>
                     Github <span>Search</span>
                 </h1>
