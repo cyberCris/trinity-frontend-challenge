@@ -1,5 +1,5 @@
 {
-  "name": "trinity-test",
+  "name": "trinity-frontend-challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,9 +24,9 @@
     "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "browserslist": {
