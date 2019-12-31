@@ -32,10 +32,10 @@ export default function Users() {
     return (
         <Container>
             <Grid container spacing={3}>
-                <Grid item xs={12} sm={12}>
+                <Grid item sm={12} xs={12}>
                     <Search row />
                 </Grid>
-                <Grid item xs={3} sm={3}>
+                <Grid item sm={3} xs={12}>
                     <StyledCard>
                         <CardContent>
                             <Profile>
@@ -91,10 +91,10 @@ export default function Users() {
                         </CardContent>
                     </StyledCard>
                 </Grid>
-                <Grid item xs={9} sm={9}>
+                <Grid item sm={9} xs={12}>
                     <Grid container spacing={2}>
                         {sortedRepos.map(repo => (
-                            <Grid item key={repo.name} xs={6} sm={6}>
+                            <Grid item key={repo.name} sm={6} xs={6}>
                                 <StyledCard>
                                     <CardContent>
                                         <h3 style={{ fontWeight: 100 }}>
